@@ -12,7 +12,7 @@ export async function startApolloServer({ typeDefs, resolvers }) {
     res.send("Hola mundo");
   });
 
-  // Integracion de Express con Graphql mediante Apollo
+  // Integracion de Express con GraphQL mediante Apollo
   const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -21,5 +21,5 @@ export async function startApolloServer({ typeDefs, resolvers }) {
   app.use("/graphql", json(), cors(), expressMiddleware(server));
 
   await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
-  console.log(`🚀 Server ready at http://localhost:4000/GraphQL !`);
+  console.log(`🚀 Server ready at http://localhost:4000/graphQL !`);
 }
