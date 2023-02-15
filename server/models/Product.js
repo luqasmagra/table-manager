@@ -10,6 +10,10 @@ const ProductSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    quantity: {
+      type: Number,
+      default: 1,
+    },
     tableId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Table",
