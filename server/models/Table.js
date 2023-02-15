@@ -8,6 +8,7 @@ const TableSchema = mongoose.Schema(
     },
     prize: {
       type: Number,
+      default: 0,
     },
   },
   {
