@@ -1,12 +1,28 @@
 import React from "react";
-import "./App.css";
+import { Routes, Route, Outlet } from "react-router-dom";
+
+import Home from "./pages/Home.jsx";
+import NavBar from "./components/NavBar/NavBar";
+
+import styles from "./App.module.css";
+
+function Layout() {
+  return (
+    <div className={styles.App}>
+      <NavBar />
+      <Outlet />
+    </div>
+  );
+}
+
 export default function App() {
   return (
-    <main>
-      <h1>Tables Manager</h1>
-      <section>
-        <h2>Cooming Soon</h2>
-      </section>
-    </main>
+    <>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
