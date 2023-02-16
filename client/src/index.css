@@ -1,5 +1,12 @@
+:root {
+  --primary-black: #1a2027;
+  --secondary-black: #221212;
+  --primary-orange: #e7a61a;
+}
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: #202020;
-  color: white;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--primary-black);
+  color: whitesmoke;
 }
