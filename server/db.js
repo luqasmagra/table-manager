@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-const URI = `mongodb+srv://luqasmagra:luqasmagra@cluster0.uvqqo65.mongodb.net/table-manager`;
-
 export async function connectDb() {
   try {
     mongoose.set("strictQuery", false);
