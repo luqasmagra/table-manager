@@ -11,6 +11,8 @@ import {
   findAllProducts,
   findOneProduct,
 } from "../controllers/queries.js";
+import Product from "../models/Product.js";
+import Table from "../models/Table.js";
 
 //Funciones que se ejecutan a partir de los tipos de datos (typeDefs)
 export const resolvers = {
@@ -52,5 +54,13 @@ export const resolvers = {
     updateProduct: async (_, args) => {
       return updateProduct({ args });
     },
+  },
+
+  // RELACIONES (El argumento que le llega a cada funcion es el "parent": datos del Schema con el que se relaciona)
+  Table: {
+    products: async ({ _id }) => await Product.find({ tableId: _id }),
+  },
+  Product: {
+    table: async ({ tableId }) => await Table.findById(tableId),
   },
 };

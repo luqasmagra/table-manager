@@ -24,6 +24,7 @@ export const typeDefs = gql`
     _id: ID
     name: String
     prize: Int
+    products: [Product]
   }
 
   type Product {
@@ -31,6 +32,7 @@ export const typeDefs = gql`
     name: String
     prize: Int
     quantity: Int
+    table: Table
     tableId: ID
   }
 `;
