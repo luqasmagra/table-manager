@@ -17,6 +17,7 @@ export async function deleteTable({ _id }) {
     const deletedTable = await Table.findByIdAndDelete(_id);
     if (!deletedTable) return new Error("Table not found");
 
+    // Borro tambien los productos
     await Product.deleteMany({ tableId: _id });
 
     return deletedTable;
