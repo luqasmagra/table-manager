@@ -4,9 +4,9 @@ import { CREATE_TABLE, GET_TABLES } from "../../graphql/tables";
 import styles from "./TableForm.module.css";
 
 export default function TableForm({ visible, onClose }) {
-  const [table, setTable] = useState({ name: "" });
-  const [createTable, { loading, error }] = useMutation(CREATE_TABLE, {
-    refetchQueries: [{ query: GET_TABLES }, "GetTables"],
+  const [table, setTable] = useState({ number: 0 });
+  const [createTable, { loading, error, data }] = useMutation(CREATE_TABLE, {
+    refetchQueries: [{ query: GET_TABLES }], // vuelvo a realizar la consulta para que se actualice la TableList
   });
 
   const handleOnClose = (e) => {
@@ -21,16 +21,16 @@ export default function TableForm({ visible, onClose }) {
     e.preventDefault();
     await createTable({
       variables: {
-        name: table.name,
+        name: `Mesa ${table.number}`,
       },
     });
     onClose();
   };
 
   return (
-    <div
+    <section
       id="tableFormModal"
-      className={styles.mainContainer}
+      className={styles.mainContainerForm}
       onClick={handleOnClose}
     >
       {loading ? (
@@ -38,20 +38,23 @@ export default function TableForm({ visible, onClose }) {
       ) : (
         <div className={styles.container}>
           <form className={styles.form} onSubmit={handleSubmit}>
-            {error && <p>{error.message}</p>}
             <input
               className={styles.name}
-              type="text"
-              name="name"
-              placeholder="e.g Mesa 1"
+              min="1"
+              type="number"
+              name="number"
+              placeholder="Mesa:"
               onChange={handleChange}
             />
-            <button className={styles.create} disabled={!table.name}>
+            <button className={styles.create} disabled={!table.number}>
               +
             </button>
           </form>
+          <button className={styles.close} onClick={onClose}>
+            Cerrar
+          </button>
         </div>
       )}
-    </div>
+    </section>
   );
 }

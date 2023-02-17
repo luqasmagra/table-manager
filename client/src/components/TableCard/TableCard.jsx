@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./TableCard.module.css";
 
-export default function TableCard({ _id, name, prize, products }) {
+export default function TableCard({ _id, name, prize }) {
   return (
     <Link to={_id} className={styles.mainContainer}>
       <div className={styles.container}>

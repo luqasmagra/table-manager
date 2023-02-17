@@ -1,4 +1,5 @@
 .mainContainer {
+  max-width: 240px;
   color: whitesmoke;
   text-decoration: none;
   padding: 10px;
@@ -7,7 +8,7 @@
   transition: 0.1s all ease-in-out;
 }
 .mainContainer:hover {
-  background-color: #22121262;
+  background-color: var(--secondary-green);
   transform: scale(1.05);
 }
 .container {

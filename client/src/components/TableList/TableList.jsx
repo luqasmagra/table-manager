@@ -17,14 +17,14 @@ export default function TableList() {
   };
 
   return (
-    <main className={styles.mainContainer}>
+    <main className="mainContainer">
       {loading ? (
-        <span className={styles.loader}>
+        <span className="containerLoader">
           <span className="loader"></span>
         </span>
       ) : error ? (
-        <span className={styles.error}>
-          <span>Error de servidor</span>
+        <span className="containerError">
+          <span className="error">No es posible conectar al servidor</span>
         </span>
       ) : (
         <div className={styles.container}>

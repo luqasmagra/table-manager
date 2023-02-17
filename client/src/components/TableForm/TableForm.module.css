@@ -1,26 +1,31 @@
-.mainContainer {
+.mainContainerForm {
   inset: 0;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #2212129f;
   backdrop-filter: blur(10px);
 }
+
 .container {
-  padding: 10px;
-  height: 100px;
+  padding: 25px;
+  height: 130px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  gap: 20px;
   background-color: var(--primary-black);
 }
+
 .form {
   display: flex;
   justify-content: space-around;
   gap: 10px;
 }
-.form .name {
+
+.name {
   background: whitesmoke;
   box-sizing: border-box;
   border: none;
@@ -28,13 +33,16 @@
   height: 50px;
   font-size: 26px;
   font-weight: 600;
-  text-align: center;
+  text-align: start;
+  padding-left: 10px;
 }
-.form .name:focus {
+
+.name:focus {
   border: none;
   outline: none;
 }
-.form .create {
+
+.create {
   width: 70px;
   background-color: var(--primary-green);
   font-size: 26px;
@@ -43,10 +51,26 @@
   cursor: pointer;
   color: #ffffff;
 }
-.form .create:hover {
-  background-color: #0fcf2f;
+
+.create:hover {
+  background-color: #22af1d;
 }
-.form .create:active {
+
+.create:active {
   position: relative;
   top: 1px;
+}
+
+.close {
+  background-color: #b80505;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 7px;
+  font-size: 26px;
+}
+
+.close:hover {
+  background-color: #e22525;
 }
