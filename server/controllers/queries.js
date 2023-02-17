@@ -4,7 +4,6 @@ import Product from "../models/Product.js";
 export async function findAllTables() {
   try {
     const tablesFound = await Table.find();
-    if (!tablesFound.length) return new Error("Tables not found"); // ToDo handle(error)
 
     return tablesFound;
   } catch (error) {
@@ -26,7 +25,6 @@ export async function findOneTable({ _id }) {
 export async function findAllProducts() {
   try {
     const productsFound = await Product.find();
-    if (!productsFound.length) return new Error("Tables not found");
 
     return productsFound;
   } catch (error) {
