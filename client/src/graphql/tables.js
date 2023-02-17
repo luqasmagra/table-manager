@@ -25,3 +25,17 @@ export const CREATE_TABLE = gql`
     }
   }
 `;
+
+export const GET_TABLE = gql`
+  query ($id: ID!) {
+    table(_id: $id) {
+      name
+      prize
+      products {
+        name
+        prize
+        quantity
+      }
+    }
+  }
+`;
