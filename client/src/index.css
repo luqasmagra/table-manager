@@ -1,7 +1,7 @@
 :root {
   --primary-black: #1a2027;
   --secondary-black: #221212;
-  --primary-orange: #e7a61a;
+  --primary-green: #115c0f;
 }
 body {
   margin: 0;
@@ -9,4 +9,27 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background: var(--primary-black);
   color: whitesmoke;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid whitesmoke;
+  border-bottom-color: var(--primary-green);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
