@@ -1,20 +1,55 @@
+.mainContainer {
+  margin-top: 50px;
+}
 .loader {
+  display: flex;
+  justify-content: center;
+}
+.error {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  width: 48px;
-  height: 48px;
-  border: 5px solid #fff;
-  border-bottom-color: var(--primary-orange);
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 80px 140px 80px;
+  border-color: transparent transparent #ff2121 transparent;
+  animation: bounce 2s linear infinite;
+}
+.error span {
+  position: absolute;
+  top: 70px;
 }
 
-@keyframes rotation {
+@keyframes bounce {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1.1);
   }
+}
+
+.container {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 5rem;
+}
+
+.createTable {
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+  color: whitesmoke;
+  width: 80px;
+  font-size: 60px;
+  background-color: var(--secondary-black);
+  box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
+  transition: 0.1s all ease-in-out;
+  border: none;
+}
+.createTable:hover {
+  background-color: #22121262;
+  transform: scale(1.05);
 }
