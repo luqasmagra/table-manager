@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
 import NavBar from "./components/NavBar/NavBar";
+import Home from "./pages/Home/Home";
+import Details from "./pages/Details/Details";
 
 import styles from "./App.module.css";
 
@@ -20,7 +21,8 @@ export default function App() {
     <>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/:id" element={<Details />} />
         </Route>
       </Routes>
     </>
