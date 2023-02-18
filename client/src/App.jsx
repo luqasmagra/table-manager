@@ -1,18 +1,14 @@
 import React from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
-
-import NavBar from "./components/NavBar/NavBar";
+import LayoutPage from "./components/LayoutPage/LayoutPage";
 import Home from "./pages/Home/Home";
 import Details from "./pages/Details/Details";
 
-import styles from "./App.module.css";
-
 function Layout() {
   return (
-    <div className={styles.App}>
-      <NavBar />
+    <LayoutPage>
       <Outlet />
-    </div>
+    </LayoutPage>
   );
 }
 
