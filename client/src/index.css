@@ -33,7 +33,7 @@ body {
   display: inline-block;
   border-radius: 50%;
   border: 5px solid whitesmoke;
-  border-bottom-color: var(--primary-green);
+  border-bottom-color: var(--primary-blue);
   animation: rotation 1s linear infinite;
 }
 
