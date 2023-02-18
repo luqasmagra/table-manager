@@ -1,14 +1,17 @@
 .mainContainer {
-  max-width: 240px;
-  color: whitesmoke;
-  text-decoration: none;
+  width: 240px;
   padding: 10px;
-  background-color: var(--secondary-black);
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  text-decoration: none;
+  color: whitesmoke;
+  border-radius: 8px;
+  background-color: var(--primary-black);
   box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
   transition: 0.1s all ease-in-out;
 }
 .mainContainer:hover {
-  background-color: var(--secondary-green);
   transform: scale(1.05);
 }
 .container {

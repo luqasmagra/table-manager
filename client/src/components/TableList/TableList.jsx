@@ -17,14 +17,14 @@ export default function TableList() {
   };
 
   return (
-    <main className="mainContainer">
+    <div className="mainContainer">
       {loading ? (
         <span className="containerLoader">
           <span className="loader"></span>
         </span>
       ) : error ? (
         <span className="containerError">
-          <span className="error">No es posible conectar al servidor</span>
+          <span className="error">Error de servidor</span>
         </span>
       ) : (
         <div className={styles.container}>
@@ -37,6 +37,6 @@ export default function TableList() {
           <TableForm onClose={handleOnClose} visible={open} />
         </div>
       )}
-    </main>
+    </div>
   );
 }

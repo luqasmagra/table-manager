@@ -3,6 +3,7 @@
   --secondary-black: #221212;
   --primary-green: #115c0f;
   --secondary-green: #054903;
+  --primary-blue: #1677ff;
 }
 
 ::-webkit-scrollbar {
@@ -11,10 +12,9 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: var(--primary-black);
-  color: whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .mainContainer {
@@ -29,11 +29,11 @@ body {
 .loader {
   width: 48px;
   height: 48px;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 50%;
   border: 5px solid whitesmoke;
   border-bottom-color: var(--primary-green);
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 
@@ -47,11 +47,11 @@ body {
 }
 
 .containerError {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
   width: 0;
   height: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   border-style: solid;
   border-width: 0 80px 140px 80px;
   border-color: transparent transparent #ff2121 transparent;
@@ -59,11 +59,13 @@ body {
 }
 
 .error {
-  text-align: center;
   width: 90px;
   position: absolute;
   top: 50px;
   left: -45px;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 18px;
 }
 
 @keyframes bounce {
