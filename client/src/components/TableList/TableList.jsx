@@ -11,8 +11,7 @@ export default function TableList() {
   const { loading, error, data } = useQuery(GET_TABLES);
   const [open, setOpen] = useState(false);
   const handleOnClose = () => setOpen(false);
-  const handleOpen = (e) => {
-    e.preventDefault();
+  const handleOpen = () => {
     setOpen(true);
   };
 
