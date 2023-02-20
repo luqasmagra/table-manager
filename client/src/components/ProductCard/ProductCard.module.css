@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
+  transition: 0.1s all ease-in-out;
+}
+.container:hover {
+  transform: scale(1.003);
+}
+.container h4 {
+  margin: 5px;
+}
+.description {
+  display: flex;
+  align-items: center;
+}
+
+.delete {
+  background-color: #b80505;
+  color: whitesmoke;
+  border: none;
+  width: max-content;
+}
+.delete:hover {
+  background-color: #e22525;
+}
