@@ -1,8 +1,8 @@
 :root {
   --primary-black: #1a2027;
   --secondary-black: #221212;
-  --primary-green: #115c0f;
-  --secondary-green: #054903;
+  --primary-green: #1b8517;
+  --secondary-green: #0a8305;
   --primary-blue: #1677ff;
 }
 
@@ -18,7 +18,7 @@ body {
 }
 
 .mainContainer {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .containerLoader {
