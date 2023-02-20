@@ -28,6 +28,7 @@ export default function ProductCard({ id, name, prize, quantity }) {
         <Loading3QuartersOutlined spin="true" />
       ) : (
         <Button
+          title="Borrar producto"
           type="secondary"
           className={styles.delete}
           icon={<DeleteOutlined />}

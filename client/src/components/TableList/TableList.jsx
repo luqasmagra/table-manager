@@ -16,7 +16,7 @@ export default function TableList() {
   };
 
   return (
-    <div className="mainContainer">
+    <section className="mainContainer">
       {loading ? (
         <span className="containerLoader">
           <span className="loader"></span>
@@ -26,7 +26,7 @@ export default function TableList() {
           <span className="error">Error de servidor</span>
         </span>
       ) : (
-        <div className={styles.container}>
+        <div className={styles.container} title="Click para ver detalles">
           {data?.tables.map(({ _id, name, prize }) => {
             return <TableCard key={_id} _id={_id} name={name} prize={prize} />;
           })}
@@ -36,6 +36,6 @@ export default function TableList() {
           <TableForm onClose={handleOnClose} visible={open} />
         </div>
       )}
-    </div>
+    </section>
   );
 }
