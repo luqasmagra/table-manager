@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_TABLES = gql`
-  {
+  query getTables {
     tables {
       _id
       name
@@ -27,11 +27,12 @@ export const CREATE_TABLE = gql`
 `;
 
 export const GET_TABLE = gql`
-  query ($id: ID!) {
+  query getTable($id: ID!) {
     table(_id: $id) {
       name
       prize
       products {
+        _id
         name
         prize
         quantity
