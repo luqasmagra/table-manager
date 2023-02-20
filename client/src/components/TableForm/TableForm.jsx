@@ -6,7 +6,7 @@ import styles from "./TableForm.module.css";
 export default function TableForm({ visible, onClose }) {
   const [table, setTable] = useState({ number: 0 });
   const [createTable, { loading }] = useMutation(CREATE_TABLE, {
-    refetchQueries: [{ query: GET_TABLES }], // vuelvo a realizar la consulta para que se actualice la TableList
+    refetchQueries: [{ query: GET_TABLES }, "getTables"], // vuelvo a realizar la consulta para que se actualice la TableList
   });
 
   const handleOnClose = (e) => {

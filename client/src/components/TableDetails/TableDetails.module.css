@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap: 20px;
+}
+.header h1 {
+  margin: 0;
+  color: whitesmoke;
+  font-size: 3rem;
+  filter: drop-shadow(0 0 0.5rem black);
+}
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.addProduct {
+  background-color: var(--secondary-green);
+  color: whitesmoke;
+}
+.addProduct:hover {
+  background-color: var(--primary-green);
+  transform: scale(1.1);
+}
+.productList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
