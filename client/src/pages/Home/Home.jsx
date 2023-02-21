@@ -1,6 +1,6 @@
 import React from "react";
-import TableList from "../../components/TableList/TableList";
+import TablesList from "../../components/TablesList/TablesList";
 
 export default function Home() {
-  return <TableList />;
+  return <TablesList />;
 }
