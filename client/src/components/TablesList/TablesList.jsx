@@ -3,15 +3,12 @@ import { useQuery } from "@apollo/client";
 import { GET_TABLES } from "../../graphql/tables";
 import TableForm from "../TableForm/TableForm";
 import TableCard from "../TableCard/TableCard";
-import styles from "./TableList.module.css";
+import styles from "./TablesList.module.css";
+import useModal from "../../hooks/useModal";
 
 export default function TableList() {
   const { loading, error, data } = useQuery(GET_TABLES);
-  const [open, setOpen] = useState(false);
-  const handleOnClose = () => setOpen(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const { open, handleOnClose, handleOpen } = useModal();
 
   return (
     <section className="mainContainer">
