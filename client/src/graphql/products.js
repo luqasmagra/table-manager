@@ -7,3 +7,15 @@ export const DELETE_PRODUCT = gql`
     }
   }
 `;
+export const CREATE_PRODUCT = gql`
+  mutation ($name: String, $prize: Int, $quantity: Int, $tableId: ID) {
+    createProduct(
+      name: $name
+      prize: $prize
+      quantity: $quantity
+      tableId: $tableId
+    ) {
+      _id
+    }
+  }
+`;
