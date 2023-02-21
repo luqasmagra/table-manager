@@ -11,9 +11,10 @@
 }
 
 .container h4 {
-  margin: 5px;
+  margin: 0;
 }
 .description {
+  gap: 10px;
   display: flex;
   align-items: center;
 }
