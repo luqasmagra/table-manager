@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { Button } from "antd";
+import { useMutation, useQuery } from "@apollo/client";
+import { Button, Popconfirm, message } from "antd";
 import { PlusCircleOutlined, LeftOutlined } from "@ant-design/icons";
-import { GET_TABLE } from "../../graphql/tables";
+import { DELETE_TABLE, GET_TABLE, GET_TABLES } from "../../graphql/tables";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./TableDetails.module.css";
 
@@ -17,6 +17,18 @@ export default function TableDetails() {
     skip: !params.id, // Saltear esta consulta si params.id es distinto a undefined
   });
 
+  const [deleteTable, { loading1 }] = useMutation(DELETE_TABLE, {
+    variables: {
+      id: params.id,
+    },
+    refetchQueries: [{ query: GET_TABLES }, "getTables"], // vuelvo a realizar la consulta para que se actualice la Table
+  });
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    await deleteTable({ variables: { id: params.id } });
+    navigate("/");
+  };
+
   return (
     <section className="mainContainer">
       {loading ? (
@@ -25,7 +37,7 @@ export default function TableDetails() {
         </span>
       ) : error ? (
         <span className="containerError">
-          <span className="error">No es posible conectar al servidor</span>
+          <span className="error">Error de servidor</span>
         </span>
       ) : (
         <div className={styles.container}>
@@ -35,7 +47,7 @@ export default function TableDetails() {
               type="secondary"
               size={"large"}
               className={styles.goBack}
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/")}
             >
               <LeftOutlined />
             </Button>
@@ -66,7 +78,20 @@ export default function TableDetails() {
               <p title="Click + para agregar productos">No hay productos</p>
             )}
           </div>
-          <h2>Precio total: ${data?.table.prize}</h2>
+          <div className={styles.footer}>
+            <h2>Precio total: ${data?.table.prize}</h2>
+            <Popconfirm
+              placement="left"
+              title={"Seguro que desea eliminar la mesa?"}
+              onConfirm={handleDelete}
+              okText="Si"
+              cancelText="No"
+            >
+              <Button type="secondary" className={styles.deleteTable}>
+                Borrar mesa
+              </Button>
+            </Popconfirm>
+          </div>
         </div>
       )}
     </section>

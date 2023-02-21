@@ -40,3 +40,11 @@ export const GET_TABLE = gql`
     }
   }
 `;
+
+export const DELETE_TABLE = gql`
+  mutation ($id: ID!) {
+    deleteTable(_id: $id) {
+      _id
+    }
+  }
+`;
