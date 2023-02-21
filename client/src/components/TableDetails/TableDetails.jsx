@@ -12,6 +12,7 @@ import ProductsList from "../ProductsList/ProductsList";
 import ProductForm from "../ProductForm/ProductForm";
 import useModal from "../../hooks/useModal";
 import useDeleteTable from "../../hooks/useDeleteTable";
+import { getTotalPrize } from "./getPrize";
 import styles from "./TableDetails.module.css";
 
 export default function TableDetails() {
@@ -22,6 +23,9 @@ export default function TableDetails() {
       id: params.id,
     },
   });
+
+  const totalPrize = getTotalPrize({ products: data?.table.products });
+
   const { handleDelete } = useDeleteTable({ params });
   const { open, handleOnClose, handleOpen } = useModal();
 
@@ -62,7 +66,7 @@ export default function TableDetails() {
             <ProductsList products={data?.table.products} />
           </div>
           <div className={styles.footer}>
-            <h2>Precio total: ${data?.table.prize}</h2>
+            <h2>Precio total: ${totalPrize}</h2>
             <Popconfirm
               placement="left"
               title={`¿Seguro que desea eliminar la ${data?.table.name}?`}

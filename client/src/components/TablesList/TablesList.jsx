@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/client";
 import { GET_TABLES } from "../../graphql/tables";
 import TableForm from "../TableForm/TableForm";
 import TableCard from "../TableCard/TableCard";
-import styles from "./TablesList.module.css";
 import useModal from "../../hooks/useModal";
+import styles from "./TablesList.module.css";
 
 export default function TableList() {
   const { loading, error, data } = useQuery(GET_TABLES);

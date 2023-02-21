@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "antd";
 import { DeleteOutlined, Loading3QuartersOutlined } from "@ant-design/icons";
-import styles from "./ProductCard.module.css";
 import useDeleteProduct from "../../hooks/useDeleteProduct";
+import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ id, name, prize, quantity }) {
   const { handleDelete, loading } = useDeleteProduct({ id });
