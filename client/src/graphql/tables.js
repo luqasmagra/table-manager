@@ -6,12 +6,6 @@ export const GET_TABLES = gql`
       _id
       name
       prize
-      products {
-        _id
-        name
-        prize
-        quantity
-      }
     }
   }
 `;

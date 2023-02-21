@@ -1,10 +1,13 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
-import { Button, Popconfirm, message } from "antd";
+import { useQuery } from "@apollo/client";
+import { Button, Popconfirm } from "antd";
 import { PlusCircleOutlined, LeftOutlined } from "@ant-design/icons";
-import { DELETE_TABLE, GET_TABLE, GET_TABLES } from "../../graphql/tables";
-import ProductCard from "../ProductCard/ProductCard";
+import { GET_TABLE } from "../../graphql/tables";
+import ProductsList from "../ProductsList/ProductsList";
+import ProductForm from "../ProductForm/ProductForm";
+import useModal from "../../hooks/useModal";
+import useDeleteTable from "../../hooks/useDeleteTable";
 import styles from "./TableDetails.module.css";
 
 export default function TableDetails() {
@@ -14,20 +17,9 @@ export default function TableDetails() {
     variables: {
       id: params.id,
     },
-    skip: !params.id, // Saltear esta consulta si params.id es distinto a undefined
   });
-
-  const [deleteTable, { loading1 }] = useMutation(DELETE_TABLE, {
-    variables: {
-      id: params.id,
-    },
-    refetchQueries: [{ query: GET_TABLES }, "getTables"], // vuelvo a realizar la consulta para que se actualice la Table
-  });
-  const handleDelete = async (e) => {
-    e.preventDefault();
-    await deleteTable({ variables: { id: params.id } });
-    navigate("/");
-  };
+  const { handleDelete } = useDeleteTable({ params });
+  const { open, handleOnClose, handleOpen } = useModal();
 
   return (
     <section className="mainContainer">
@@ -57,32 +49,19 @@ export default function TableDetails() {
               type="secondary"
               size={"large"}
               className={styles.addProduct}
+              onClick={handleOpen}
             >
               <PlusCircleOutlined />
             </Button>
           </div>
           <div className={styles.productList}>
-            {data?.table.products.length ? (
-              data?.table.products.map(({ _id, name, prize, quantity }) => {
-                return (
-                  <ProductCard
-                    key={_id}
-                    id={_id}
-                    name={name}
-                    prize={prize}
-                    quantity={quantity}
-                  />
-                );
-              })
-            ) : (
-              <p title="Click + para agregar productos">No hay productos</p>
-            )}
+            <ProductsList products={data?.table.products} />
           </div>
           <div className={styles.footer}>
             <h2>Precio total: ${data?.table.prize}</h2>
             <Popconfirm
               placement="left"
-              title={"Seguro que desea eliminar la mesa?"}
+              title={`¿Seguro que desea eliminar la ${data?.table.name}?`}
               onConfirm={handleDelete}
               okText="Si"
               cancelText="No"
@@ -92,6 +71,7 @@ export default function TableDetails() {
               </Button>
             </Popconfirm>
           </div>
+          <ProductForm onClose={handleOnClose} visible={open} />
         </div>
       )}
     </section>

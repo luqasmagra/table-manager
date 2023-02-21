@@ -14,7 +14,6 @@
 .goBack,
 .addProduct,
 .title {
-  color: whitesmoke;
   font-size: 45px;
 }
 .goBack {
@@ -56,4 +55,9 @@
 }
 .deleteTable:hover {
   background-color: #e22525;
+}
+
+.deleteTable:active {
+  position: relative;
+  top: 1px;
 }
