@@ -8,7 +8,7 @@ import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ id, name, prize, quantity }) {
   const [deleteProduct, { loading }] = useMutation(DELETE_PRODUCT, {
-    refetchQueries: [{ query: GET_TABLE }, "getTable"], // vuelvo a realizar la consulta para que se actualice la TableList
+    refetchQueries: [{ query: GET_TABLE }, "getTable"], // vuelvo a realizar la consulta para que se actualice la Table
   });
 
   const handleDelete = async (e) => {
