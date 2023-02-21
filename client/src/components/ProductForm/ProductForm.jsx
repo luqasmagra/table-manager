@@ -1,11 +1,16 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
+import { CREATE_PRODUCT } from "../../graphql/products";
+import { GET_TABLE } from "../../graphql/tables";
 
 export default function ProductForm({ visible, onClose }) {
+  const [createProduct, { loading }] = useMutation(CREATE_PRODUCT, {
+    refetchQueries: [{ query: GET_TABLE }, "getTable"], // vuelvo a realizar la consulta para que se actualice la TableList
+  });
   const handleOnClose = (e) => {
     if (e.target.id === "modal") onClose();
   };
   if (!visible) return null;
-  const loading = false;
 
   return (
     <section id="modal" className="mainContainerForm" onClick={handleOnClose}>
