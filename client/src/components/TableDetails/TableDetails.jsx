@@ -2,7 +2,11 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { Button, Popconfirm } from "antd";
-import { PlusCircleOutlined, LeftOutlined } from "@ant-design/icons";
+import {
+  PlusCircleOutlined,
+  LeftOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { GET_TABLE } from "../../graphql/tables";
 import ProductsList from "../ProductsList/ProductsList";
 import ProductForm from "../ProductForm/ProductForm";
@@ -65,8 +69,10 @@ export default function TableDetails() {
               onConfirm={handleDelete}
               okText="Si"
               cancelText="No"
+              icon={null}
             >
               <Button type="secondary" className={styles.deleteTable}>
+                <DeleteOutlined />
                 Borrar mesa
               </Button>
             </Popconfirm>

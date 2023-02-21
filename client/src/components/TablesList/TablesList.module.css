@@ -16,7 +16,7 @@
   font-size: 60px;
   border: none;
   border-radius: 8px;
-  background-color: var(--primary-black);
+  background-color: var(--primary-green);
   box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
   transition: 0.1s all ease-in-out;
 }
