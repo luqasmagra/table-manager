@@ -8,8 +8,8 @@ import {
   TableOutlined,
   GithubFilled,
 } from "@ant-design/icons";
-import styles from "./Layout.module.css";
 import logo from "./logo.svg";
+import styles from "./Layout.module.css";
 
 const { Header, Sider, Content } = Layout;
 
@@ -22,17 +22,7 @@ export default function LayoutPage({ children }) {
         style={{
           background: "#1a2027",
         }}
-        trigger={
-          <div className={styles.networkContainer}>
-            <a
-              href="https://github.com/luqasmagra/tables-manager"
-              target="_blank"
-              className={styles.network}
-            >
-              <GithubFilled />
-            </a>
-          </div>
-        }
+        trigger={null}
         collapsible
         collapsed={collapsed}
       >
@@ -67,7 +57,7 @@ export default function LayoutPage({ children }) {
           ]}
         />
       </Sider>
-      <Layout>
+      <Layout className={styles.content1}>
         <Header
           style={{
             padding: 2,
@@ -79,6 +69,13 @@ export default function LayoutPage({ children }) {
               className: `${styles.trigger}`,
               onClick: () => setCollapsed(!collapsed),
             })}
+            <a
+              href="https://github.com/luqasmagra/tables-manager"
+              target="_blank"
+              className={styles.network}
+            >
+              <GithubFilled />
+            </a>
           </div>
         </Header>
         <Content className={styles.content}>{children}</Content>
