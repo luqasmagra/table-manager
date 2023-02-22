@@ -11,5 +11,6 @@ export default function useDeleteProduct({ id }) {
     e.preventDefault();
     await deleteProduct({ variables: { id } });
   };
+
   return { handleDelete, deleteLoading: loading };
 }

@@ -11,5 +11,6 @@ export default function useEditProduct({ id }) {
     if (!quantity) return;
     await updateProduct({ variables: { id, quantity: Number(quantity) } });
   };
+
   return { handleEditProduct, editLoading: loading };
 }

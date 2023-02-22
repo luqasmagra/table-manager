@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Popconfirm } from "antd";
 import {
   PlusCircleOutlined,
@@ -14,12 +15,14 @@ import { getTotalPrize } from "./getPrize";
 import styles from "./TableDetails.module.css";
 
 export default function TableDetails() {
-  const { navigate, params, loading, error, products, name } = useGetTable();
-  const { handleDelete } = useDeleteTable({ params });
+  const navigate = useNavigate();
+
+  const { loading, error, id, name, products } = useGetTable();
+  const { handleDelete } = useDeleteTable({ id });
 
   const { open, handleOnClose, handleOpen } = useModal();
 
-  const totalPrize = getTotalPrize({ products: products });
+  const totalPrize = getTotalPrize({ products });
 
   return (
     <section className="mainContainer">

@@ -14,8 +14,9 @@ import styles from "./Layout.module.css";
 const { Header, Sider, Content } = Layout;
 
 export default function LayoutPage({ children }) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const navigate = useNavigate();
+
   return (
     <Layout className={styles.layout}>
       <Sider
