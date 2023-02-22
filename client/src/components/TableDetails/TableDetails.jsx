@@ -1,32 +1,21 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
 import { Button, Popconfirm } from "antd";
 import {
   PlusCircleOutlined,
   LeftOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
-import { GET_TABLE } from "../../graphql/tables";
 import ProductsList from "../ProductsList/ProductsList";
 import ProductForm from "../ProductForm/ProductForm";
 import useModal from "../../hooks/useModal";
 import useDeleteTable from "../../hooks/useDeleteTable";
 import { getTotalPrize } from "./getPrize";
 import styles from "./TableDetails.module.css";
+import useGetTable from "../../hooks/useGetTable";
 
 export default function TableDetails() {
-  const navigate = useNavigate();
-  const params = useParams();
-
-  const { loading, error, data } = useQuery(GET_TABLE, {
-    variables: {
-      id: params.id,
-    },
-  });
-
-  const totalPrize = getTotalPrize({ products: data?.table.products });
-
+  const { navigate, params, loading, error, products, name } = useGetTable();
+  const totalPrize = getTotalPrize({ products: products });
   const { handleDelete } = useDeleteTable({ params });
   const { open, handleOnClose, handleOpen } = useModal();
 
@@ -52,7 +41,7 @@ export default function TableDetails() {
             >
               <LeftOutlined />
             </Button>
-            <h1 className={styles.title}>{data?.table.name}</h1>
+            <h1 className={styles.title}>{name}</h1>
             <Button
               title="Agregar producto"
               type="secondary"
@@ -64,13 +53,13 @@ export default function TableDetails() {
             </Button>
           </div>
           <div className={styles.productList}>
-            <ProductsList products={data?.table.products} />
+            <ProductsList products={products} />
           </div>
           <div className={styles.footer}>
             <h2>Precio total: ${totalPrize}</h2>
             <Popconfirm
               placement="left"
-              title={`¿Seguro que desea eliminar la ${data?.table.name}?`}
+              title={`¿Seguro que desea eliminar la ${name}?`}
               onConfirm={handleDelete}
               okText="Si"
               cancelText="No"

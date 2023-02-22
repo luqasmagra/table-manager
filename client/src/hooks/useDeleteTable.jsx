@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { DELETE_TABLE, GET_TABLE, GET_TABLES } from "../graphql/tables";
-import { useMutation, useQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+import { DELETE_TABLE, GET_TABLES } from "../graphql/tables";
+import { useMutation } from "@apollo/client";
 
 export default function useDeleteTable({ params }) {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export default function useDeleteTable({ params }) {
     variables: {
       id: params.id,
     },
-    refetchQueries: [{ query: GET_TABLES }, "getTables"], // vuelvo a realizar la consulta para que se actualice las Tables
+    refetchQueries: [{ query: GET_TABLES }, "getTables"],
   });
   const handleDelete = async (e) => {
     e.preventDefault();
