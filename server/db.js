@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const URI = `mongodb+srv://${process.env.USER}:${process.env.PASS}@tablemanager.ompqtnz.mongodb.net/table-manager`;
+const URI = process.env.URI;
 
 export async function connectDb() {
   try {
