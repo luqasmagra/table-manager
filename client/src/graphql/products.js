@@ -7,6 +7,7 @@ export const DELETE_PRODUCT = gql`
     }
   }
 `;
+
 export const CREATE_PRODUCT = gql`
   mutation ($name: String, $prize: Int, $quantity: Int, $tableId: ID) {
     createProduct(
@@ -16,6 +17,15 @@ export const CREATE_PRODUCT = gql`
       tableId: $tableId
     ) {
       _id
+    }
+  }
+`;
+
+export const EDIT_PRODUCT = gql`
+  mutation ($id: ID!, $quantity: Int!) {
+    updateProduct(_id: $id, quantity: $quantity) {
+      _id
+      name
     }
   }
 `;
