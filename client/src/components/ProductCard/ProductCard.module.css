@@ -13,6 +13,7 @@
 .container h4 {
   margin: 0;
 }
+
 .description {
   gap: 10px;
   display: flex;
@@ -24,6 +25,7 @@
   color: whitesmoke;
   border: none;
 }
+
 .delete:hover {
   background-color: #e22525;
   transform: scale(1.1);

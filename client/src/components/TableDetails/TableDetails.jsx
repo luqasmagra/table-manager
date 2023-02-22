@@ -18,6 +18,7 @@ import styles from "./TableDetails.module.css";
 export default function TableDetails() {
   const navigate = useNavigate();
   const params = useParams();
+
   const { loading, error, data } = useQuery(GET_TABLE, {
     variables: {
       id: params.id,

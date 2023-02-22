@@ -26,6 +26,7 @@
   border: 1px solid var(--primary-blue);
   outline: none;
 }
+
 .name:focus {
   border: 1px solid var(--primary-blue);
   outline: none;

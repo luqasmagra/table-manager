@@ -23,7 +23,6 @@ export default function ProductForm({ visible, onClose }) {
   };
 
   if (!visible) return null;
-
   return (
     <section id="modal" className="sectionForm" onClick={handleOnClose}>
       {loading ? (

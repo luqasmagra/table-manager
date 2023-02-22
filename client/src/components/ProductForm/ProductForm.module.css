@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 7px;
 }
+
 .select {
   width: 210px;
   text-align: left;

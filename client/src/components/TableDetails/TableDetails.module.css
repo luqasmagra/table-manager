@@ -6,36 +6,44 @@
   gap: 20px;
   text-align: center;
 }
+
 .header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 }
+
 .goBack,
 .addProduct,
 .title {
   color: whitesmoke;
   font-size: 45px;
 }
+
 .goBack {
   background-color: var(--primary-blue);
   box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
 }
+
 .goBack:hover {
   background-color: #398afa;
   transform: scale(1.1);
 }
+
 .title {
   margin: 0;
   filter: drop-shadow(0 0 0.6rem var(--primary-blue));
 }
+
 .addProduct {
   background-color: var(--primary-green);
 }
+
 .addProduct:hover {
   background-color: var(--secondary-green);
   transform: scale(1.1);
 }
+
 .productList {
   display: flex;
   flex-direction: column;
@@ -43,11 +51,13 @@
   align-items: center;
   gap: 7px;
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .deleteTable {
   background-color: #b80505;
   color: whitesmoke;
@@ -55,9 +65,11 @@
   font-weight: 500;
   border: none;
 }
+
 .deleteTable:hover {
   background-color: #e22525;
 }
+
 .deleteTable:active {
   position: relative;
   top: 1px;

@@ -2,15 +2,15 @@ import useCreateTable from "../../hooks/useCreateTable";
 import styles from "./TableForm.module.css";
 
 export default function TableForm({ visible, onClose }) {
-  const handleOnClose = (e) => {
-    if (e.target.id === "modal") onClose();
-  };
-  if (!visible) return null;
-
   const { loading, handleSubmit, handleChange, table } = useCreateTable({
     onClose,
   });
 
+  const handleOnClose = (e) => {
+    if (e.target.id === "modal") onClose();
+  };
+
+  if (!visible) return null;
   return (
     <section id="modal" className="sectionForm" onClick={handleOnClose}>
       {loading ? (
