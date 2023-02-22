@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_TABLE } from "../graphql/tables";

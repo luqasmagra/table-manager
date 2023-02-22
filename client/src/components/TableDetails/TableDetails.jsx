@@ -9,15 +9,17 @@ import ProductsList from "../ProductsList/ProductsList";
 import ProductForm from "../ProductForm/ProductForm";
 import useModal from "../../hooks/useModal";
 import useDeleteTable from "../../hooks/useDeleteTable";
+import useGetTable from "../../hooks/useGetTable";
 import { getTotalPrize } from "./getPrize";
 import styles from "./TableDetails.module.css";
-import useGetTable from "../../hooks/useGetTable";
 
 export default function TableDetails() {
   const { navigate, params, loading, error, products, name } = useGetTable();
-  const totalPrize = getTotalPrize({ products: products });
   const { handleDelete } = useDeleteTable({ params });
+
   const { open, handleOnClose, handleOpen } = useModal();
+
+  const totalPrize = getTotalPrize({ products: products });
 
   return (
     <section className="mainContainer">

@@ -8,6 +8,7 @@ import styles from "./TablesList.module.css";
 
 export default function TableList() {
   const { loading, error, data } = useQuery(GET_TABLES);
+
   const { open, handleOnClose, handleOpen } = useModal();
 
   return (

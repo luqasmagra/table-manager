@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import { DELETE_TABLE, GET_TABLES } from "../graphql/tables";
 import { useMutation } from "@apollo/client";
+import { DELETE_TABLE, GET_TABLES } from "../graphql/tables";
 
 export default function useDeleteTable({ params }) {
   const navigate = useNavigate();

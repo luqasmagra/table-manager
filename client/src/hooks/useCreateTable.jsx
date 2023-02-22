@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_TABLE, GET_TABLES } from "../graphql/tables";
 
