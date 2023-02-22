@@ -12,32 +12,26 @@ export default function TableForm({ visible, onClose }) {
   });
 
   return (
-    <section id="modal" className="mainContainerForm" onClick={handleOnClose}>
+    <section id="modal" className="sectionForm" onClick={handleOnClose}>
       {loading ? (
         <span className="loader"></span>
       ) : (
-        <div className={styles.container}>
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
-            >
-              <label style={{ color: "whitesmoke", fontSize: "20px" }}>
-                Agregar nueva mesa
-              </label>
-              <input
-                className={styles.name}
-                min="1"
-                type="number"
-                name="number"
-                placeholder="Mesa:"
-                onChange={handleChange}
-              />
-            </div>
-            <button className={styles.create} disabled={!table.number}>
+        <div className="mainContainerForm">
+          <h2>Agregar nueva mesa</h2>
+          <form className="formContainer" onSubmit={handleSubmit}>
+            <input
+              className={styles.name}
+              min="1"
+              type="number"
+              name="number"
+              placeholder="Mesa:"
+              onChange={handleChange}
+            />
+            <button className="createButton" disabled={!table.number}>
               +
             </button>
           </form>
-          <button className={styles.close} onClick={onClose}>
+          <button onClick={onClose} className="cancelButton">
             Cancelar
           </button>
         </div>

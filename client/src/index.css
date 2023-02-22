@@ -21,20 +21,6 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.mainContainerForm {
-  z-index: 10;
-  inset: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1677ff1f;
-  backdrop-filter: blur(10px);
-  animation-fill-mode: both;
-  animation-duration: 0.3s;
-  animation-name: fadeInDown;
-}
-
 .containerLoader {
   display: flex;
   justify-content: center;
@@ -89,4 +75,104 @@ body {
   100% {
     transform: scale(1.1);
   }
+}
+
+.sectionForm {
+  z-index: 10;
+  inset: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-fill-mode: both;
+  animation-duration: 0.3s;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    background-color: #1677ff00;
+    backdrop-filter: blur(0px);
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    background-color: #1677ff1f;
+    backdrop-filter: blur(10px);
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.mainContainerForm {
+  padding: 80px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  background-color: var(--primary-black);
+  box-shadow: 0px 0px 40px -13px rgba(0, 0, 0, 1);
+}
+
+.mainContainerForm h2 {
+  margin: 0;
+  padding: 5px;
+  align-self: flex-start;
+  font-size: 24px;
+  filter: drop-shadow(0 0 0.5rem var(--primary-blue));
+  color: whitesmoke;
+}
+
+.formContainer {
+  display: flex;
+  gap: 28px;
+}
+
+.label {
+  color: whitesmoke;
+  font-size: 18px;
+  align-self: flex-start;
+  font-size: 16px;
+}
+
+.createButton {
+  cursor: pointer;
+  align-self: flex-end;
+  height: 50px;
+  width: 70px;
+  display: inline-block;
+  font-size: 24px;
+  border: none;
+  color: whitesmoke;
+  border-radius: 8px;
+  background-color: var(--primary-blue);
+}
+
+.createButton:hover {
+  background-color: #398afa;
+}
+
+.createButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.cancelButton {
+  cursor: pointer;
+  padding: 7px;
+  display: inline-block;
+  font-size: 20px;
+  color: whitesmoke;
+  border: none;
+  border-radius: 8px;
+  background-color: #b80505;
+}
+
+.cancelButton:hover {
+  background-color: #e22525;
 }
