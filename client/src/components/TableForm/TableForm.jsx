@@ -2,7 +2,7 @@ import useCreateTable from "../../hooks/useCreateTable";
 import styles from "./TableForm.module.css";
 
 export default function TableForm({ visible, onClose }) {
-  const { loading, handleSubmit, handleChange, table } = useCreateTable({
+  const { loading, handleSubmit, handleChange, tableNumber } = useCreateTable({
     onClose,
   });
 
@@ -27,7 +27,7 @@ export default function TableForm({ visible, onClose }) {
               placeholder="Mesa:"
               onChange={handleChange}
             />
-            <button className="createButton" disabled={!table.number}>
+            <button className="createButton" disabled={!tableNumber}>
               +
             </button>
           </form>
