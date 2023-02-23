@@ -23,9 +23,20 @@ export default function TableList() {
         </span>
       ) : (
         <div className={styles.container}>
-          {data?.tables.map(({ _id, name, prize }) => {
-            return <TableCard key={_id} _id={_id} name={name} prize={prize} />;
-          })}
+          {data?.tables.length ? (
+            data?.tables.map(({ _id, name, prize }) => {
+              return (
+                <TableCard key={_id} _id={_id} name={name} prize={prize} />
+              );
+            })
+          ) : (
+            <p
+              style={{ color: "whitesmoke", margin: "0 auto" }}
+              title="Click en + para agregar mesa"
+            >
+              No hay mesas
+            </p>
+          )}
           <button
             title="Agrear nueva mesa"
             className={styles.createTable}

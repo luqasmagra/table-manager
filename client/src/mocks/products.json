@@ -1,0 +1,9 @@
+{
+  "products": [
+    { "name": "14 - Cafe Grande", "prize": 150 },
+    { "name": "12 - Cafe Mediano", "prize": 100 },
+    { "name": "11 - Cafe Chico", "prize": 80 },
+    { "name": "21 - Medialuna", "prize": 50 },
+    { "name": "322 - Pepsi 0.5LTS", "prize": 200 }
+  ]
+}

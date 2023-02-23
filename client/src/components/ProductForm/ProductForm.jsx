@@ -1,25 +1,19 @@
 import React from "react";
-import { useMutation } from "@apollo/client";
 import { Select, InputNumber } from "antd";
-import { CREATE_PRODUCT } from "../../graphql/products";
-import { GET_TABLE } from "../../graphql/tables";
+import { products as PRODUCTS } from "../../mocks/products.json";
+import useCreateProduct from "../../hooks/useCreateProduct";
 import styles from "./ProductForm.module.css";
 
+const PRODUCTS_TO_RENDER = PRODUCTS.map((product) => {
+  return { value: product.name, label: product.name };
+});
+
 export default function ProductForm({ visible, onClose }) {
-  const [createProduct, { loading }] = useMutation(CREATE_PRODUCT, {
-    refetchQueries: [{ query: GET_TABLE }, "getTable"], // vuelvo a realizar la consulta para que se actualice la TableList
-  });
+  const { product, loading, handleSubmit, handleProduct, handleQuantity } =
+    useCreateProduct({ onClose });
+
   const handleOnClose = (e) => {
     if (e.target.id === "modal") onClose();
-  };
-
-  const handleSubmit = (e) => {};
-
-  const onChange = (value) => {
-    console.log(`selected ${value}`);
-  };
-  const onSearch = (value) => {
-    console.log("search:", value);
   };
 
   if (!visible) return null;
@@ -39,27 +33,13 @@ export default function ProductForm({ visible, onClose }) {
                 showSearch
                 placeholder="Selecione un producto"
                 optionFilterProp="children"
-                onChange={onChange}
-                onSearch={onSearch}
+                onChange={handleProduct}
                 filterOption={(input, option) =>
                   (option?.label ?? "")
                     .toLowerCase()
                     .includes(input.toLowerCase())
                 }
-                options={[
-                  {
-                    value: "jack",
-                    label: "Jack",
-                  },
-                  {
-                    value: "lucy",
-                    label: "Lucy",
-                  },
-                  {
-                    value: "tom",
-                    label: "Tom",
-                  },
-                ]}
+                options={PRODUCTS_TO_RENDER}
               />
             </div>
             <div className={styles.selectContainer}>
@@ -68,11 +48,13 @@ export default function ProductForm({ visible, onClose }) {
                 size="large"
                 min={1}
                 max={100}
-                defaultValue={1}
-                onChange={onChange}
+                defaultValue={null}
+                onChange={handleQuantity}
               />
             </div>
-            <button className="createButton">+</button>
+            <button className="createButton" disabled={!product.name.length}>
+              +
+            </button>
           </form>
           <button onClick={onClose} className="cancelButton">
             Cancelar
