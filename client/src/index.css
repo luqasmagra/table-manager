@@ -135,7 +135,6 @@ body {
 
 .label {
   color: whitesmoke;
-  font-size: 18px;
   align-self: flex-start;
   font-size: 16px;
 }
@@ -175,4 +174,7 @@ body {
 
 .cancelButton:hover {
   background-color: #e22525;
+}
+.formContainer input {
+  font-size: 20px;
 }
