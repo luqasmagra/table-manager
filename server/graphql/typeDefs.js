@@ -11,7 +11,7 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    createTable(name: String, prize: Int): Table
+    createTable(name: String): Table
     deleteTable(_id: ID!): Table
     updateTable(_id: ID!, prize: Int!): Table
 

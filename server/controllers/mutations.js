@@ -1,9 +1,14 @@
 import Table from "../models/Table.js";
 import Product from "../models/Product.js";
 
-export async function createTable({ name, prize }) {
+export async function createTable({ name }) {
   try {
-    const table = new Table({ name, prize });
+    const tableFound = await Table.findOne({ name });
+    if (tableFound) {
+      name = `${name} (a)`;
+    }
+
+    const table = new Table({ name });
     const savedTable = await table.save();
 
     return savedTable;

@@ -35,8 +35,8 @@ export const resolvers = {
 
   // CREACION Y ACTUALIZACION DE DATOS
   Mutation: {
-    createTable: async (_, { name, prize }) => {
-      return createTable({ name, prize });
+    createTable: async (_, { name }) => {
+      return createTable({ name });
     },
     deleteTable: async (_, { _id }) => {
       return deleteTable({ _id });

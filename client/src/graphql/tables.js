@@ -5,7 +5,6 @@ export const GET_TABLES = gql`
     tables {
       _id
       name
-      prize
     }
   }
 `;
@@ -15,7 +14,6 @@ export const CREATE_TABLE = gql`
     createTable(name: $name) {
       _id
       name
-      prize
     }
   }
 `;
@@ -24,7 +22,6 @@ export const GET_TABLE = gql`
   query getTable($id: ID!) {
     table(_id: $id) {
       name
-      prize
       products {
         _id
         name
