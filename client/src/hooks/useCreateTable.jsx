@@ -16,6 +16,7 @@ export default function useCreateTable({ onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!tableNumber) return;
     await createTable({
       variables: {
         name: `Mesa ${tableNumber}`,

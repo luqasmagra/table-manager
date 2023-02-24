@@ -13,12 +13,13 @@ export default function useCreateProduct({ onClose }) {
   });
 
   const [product, setProduct] = useState({
-    name: String,
-    quantity: Number,
+    name: "",
+    quantity: 1,
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!product.name) return;
     const productFind = PRODUCTS.find((item) => item.name === product.name);
     await createProduct({
       variables: {
@@ -27,6 +28,10 @@ export default function useCreateProduct({ onClose }) {
         prize: productFind.prize,
         tableId: params.id,
       },
+    });
+    setProduct({
+      name: "",
+      quantity: 1,
     });
     onClose();
   };
