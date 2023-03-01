@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Popconfirm } from "antd";
 import {
   PlusCircleOutlined,
@@ -15,8 +15,6 @@ import { getTotalPrize } from "./getPrize";
 import styles from "./TableDetails.module.css";
 
 export default function TableDetails() {
-  const navigate = useNavigate();
-
   const { loading, error, id, name, products } = useGetTable();
   const { handleDelete } = useDeleteTable({ id });
 
@@ -42,9 +40,10 @@ export default function TableDetails() {
               type="secondary"
               size={"large"}
               className={styles.goBack}
-              onClick={() => navigate("/")}
             >
-              <LeftOutlined />
+              <Link to={"/"}>
+                <LeftOutlined />
+              </Link>
             </Button>
             <h1 className={styles.title}>{name}</h1>
             <Button
